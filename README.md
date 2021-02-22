@@ -51,12 +51,16 @@ Copy this into a new `.env` file and fill it in.
 
 `docker ps` - see your currently running docker containers
 
+### psql
+
+Here's a useful psql command cheat sheet: [https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546]()
+
 ## Connect to the containers
 
 ### django
 `docker exec -it django /bin/bash`
 
 ### pgdb
-`docker exec -it pgdb /bin/bash`
+`docker exec -it pgdb /bin/bash` (note: you can only access the db as the user postges so if you connect this way you may need to switch users)
 
 or to go straight into psql `docker exec -it pgdb psql -U postgres`
