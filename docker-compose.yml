@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  django:
+    build: ./core
+    container_name: django
+    working_dir: /usr/src/app
+    volumes:
+      - ./core:/usr/src/app
+    command: /bin/bash -c "pip install -r requirements.txt && python manage.py migrate && pip list && python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - pgdb
+  pgdb:
+    build: ./data
+    container_name: pgdb
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./data/:/data
+      - pgdata:/var/lib/postgresql/data/
+
+volumes:
+  pgdata:
