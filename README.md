@@ -4,6 +4,10 @@ Two docker containers: `django` running django `pgdb` running postgres.
 
 The site isn't doing anything interesting but when it's running it should be at http://127.0.0.1:8000
 
+## Prerequisites
+
+* Download and install docker [Docker](https://www.docker.com/)
+
 ## Setup
 
 In the "core" folder there is a file `example.env`.
