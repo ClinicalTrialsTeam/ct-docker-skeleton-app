@@ -96,8 +96,6 @@ RUN rm -r /var/lib/apt/lists/*
 RUN useradd -m -s /bin/bash ct-user && \
     echo "ct-user ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/ct-init
 
-RUN echo "postgres ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/postgres-init
-
 # create binary reporting version of dockerfile
 RUN (echo '#\!/bin/sh'; echo 'echo 5') > /usr/bin/ct-docker-version; chmod ugo+rx,u+w,go-w /usr/bin/ct-docker-version
 

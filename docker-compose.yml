@@ -13,7 +13,7 @@ services:
     depends_on:
       - pgdb
   pgdb:
-    build: ./data
+    image: postgres
     container_name: pgdb
     environment:
       - POSTGRES_DB=postgres

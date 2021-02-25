@@ -19,8 +19,12 @@ Copy this into a new `.env` file and fill it in.
 
 1. Download `.zip` from [https://aact.ctti-clinicaltrials.org/snapshots]()
 2. Unzip into `data` folder (`unzip <filename.zip> -d data`)
-3. Start running the docker containers `docker-compose up`
-4. Connect to postgres. `docker exec -it pgdb psql -U postgres`
+3. Start running the docker containers `docker-compose up`. The first time you
+run this it will take a LONG time! After the first time, much of the build
+will be cached and it will not take so long.
+4. Connect to postgres container. `docker exec -it pgdb --user postgres /bin/bash`
+5. Create the database `createdb aact`
+6. Start psql `psql`
 5. You should see the `postgres=#` prompt.
 6. Add ctgov schema to pSQL search path `alter role postgres in database aact set search_path = ctgov, public;`
 7. Connect to the aact database: `\c aact`
